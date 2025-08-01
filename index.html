@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seal the Dark Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="welcome-screen" class="screen active">
+        <div class="welcome-content">
+            <h1>Seal the Dark Portal</h1>
+            <p>A dark portal has opened, spawning monsters across the land. Choose your hero and venture forth to seal it before darkness consumes the world!</p>
+            <button id="start-game-btn" class="btn-primary">Choose Your Hero</button>
+        </div>
+    </div>
+
+    <div id="character-select" class="screen">
+        <div class="character-select-content">
+            <h2>Choose Your Hero</h2>
+            <div class="character-grid">
+                <div class="character-card" data-class="fire-mage">
+                    <div class="character-image">
+                        <img src="images/fire_mage_1.jpg" alt="Fire Mage">
+                    </div>
+                    <div class="character-info">
+                        <h3>Fire Mage</h3>
+                        <div class="stats">
+                            <div class="stat"><span>HP:</span> 60</div>
+                        </div>
+                        <div class="skills">
+                            <div class="skill">Fireball</div>
+                            <div class="skill">Wind Shield</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-class="elven-ranger">
+                    <div class="character-image">
+                        <img src="images/elven_ranger_1.jpg" alt="Elven Ranger">
+                    </div>
+                    <div class="character-info">
+                        <h3>Elven Ranger</h3>
+                        <div class="stats">
+                            <div class="stat"><span>HP:</span> 80</div>
+                        </div>
+                        <div class="skills">
+                            <div class="skill">Arrow Shot</div>
+                            <div class="skill">Dodge</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-class="human-knight">
+                    <div class="character-image">
+                        <img src="images/human_knight_1.jpg" alt="Human Knight">
+                    </div>
+                    <div class="character-info">
+                        <h3>Human Knight</h3>
+                        <div class="stats">
+                            <div class="stat"><span>HP:</span> 120</div>
+                        </div>
+                        <div class="skills">
+                            <div class="skill">Sword Strike</div>
+                            <div class="skill">Shield Block</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-class="elven-warrior">
+                    <div class="character-image">
+                        <img src="images/elven_warrior_1.jpg" alt="Elven Warrior">
+                    </div>
+                    <div class="character-info">
+                        <h3>Elven Warrior</h3>
+                        <div class="stats">
+                            <div class="stat"><span>HP:</span> 100</div>
+                        </div>
+                        <div class="skills">
+                            <div class="skill">Dual Strike</div>
+                            <div class="skill">Heal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div class="game-content">
+            <div class="encounter-info">
+                <h3 id="encounter-title">Encounter 1</h3>
+                <p id="encounter-description">You venture into the dark forest...</p>
+            </div>
+            
+            <div class="battle-area">
+                <div class="player-side">
+                    <div class="character-battle-card">
+                        <div class="battle-image">
+                            <img id="player-image" src="" alt="Player">
+                        </div>
+                        <div class="battle-stats">
+                            <div class="stat-bar">
+                                <label>HP:</label>
+                                <div class="bar-container">
+                                    <div class="bar hp-bar" id="player-hp-bar"></div>
+                                    <span id="player-hp-text">100/100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="attack-btn" class="action-btn">Attack</button>
+                        <button id="skill1-btn" class="action-btn">Skill 1</button>
+                        <button id="skill2-btn" class="action-btn">Skill 2</button>
+                    </div>
+                </div>
+
+                <div class="enemy-side">
+                    <div class="enemy-battle-card">
+                        <div class="battle-image">
+                            <img id="enemy-image" src="" alt="Enemy">
+                        </div>
+                        <div class="battle-stats">
+                            <div class="stat-bar">
+                                <label>HP:</label>
+                                <div class="bar-container">
+                                    <div class="bar hp-bar" id="enemy-hp-bar"></div>
+                                    <span id="enemy-hp-text">50/50</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="enemy-name" id="enemy-name">Goblin</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="battle-log">
+                <div id="log-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="victory-screen" class="screen">
+        <div class="victory-content">
+            <h1>Victory!</h1>
+            <p>You have successfully sealed the Dark Portal and saved the realm from darkness!</p>
+            <button id="play-again-btn" class="btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="ambient-music" preload="auto" loop>
+        <source src="media/ambient-game-67014.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="melee-attack-sound" preload="auto">
+        <source src="media/sword-slash-01-266296.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="magic-attack-sound" preload="auto">
+        <source src="media/fireball-whoosh-1-179125.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="healing-sound" preload="auto">
+        <source src="media/healing-magic-4-378668.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="wind-magic-sound" preload="auto">
+        <source src="media/wind-magic-2-378627.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="victory-sound" preload="auto">
+        <source src="media/victory-chime-366449.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
